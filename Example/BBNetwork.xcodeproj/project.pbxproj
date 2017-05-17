@@ -7,18 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		491520781ECBEA8500C89286 /* BBResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 491520771ECBEA8500C89286 /* BBResponseObject.m */; };
+		4915207C1ECC283A00C89286 /* BBNetworkDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 4915207B1ECC283A00C89286 /* BBNetworkDefine.m */; };
+		4915207E1ECC294700C89286 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4915207D1ECC294700C89286 /* UIKit.framework */; };
+		491520801ECC294B00C89286 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4915207F1ECC294B00C89286 /* Foundation.framework */; };
+		491520831ECC401A00C89286 /* BBNetPictureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 491520821ECC401A00C89286 /* BBNetPictureModel.m */; };
 		497296661ECAEF5800A8DDD9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 497296651ECAEF5800A8DDD9 /* main.m */; };
 		497296691ECAEF5800A8DDD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 497296681ECAEF5800A8DDD9 /* AppDelegate.m */; };
 		4972966C1ECAEF5800A8DDD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972966B1ECAEF5800A8DDD9 /* ViewController.m */; };
 		4972966F1ECAEF5800A8DDD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4972966D1ECAEF5800A8DDD9 /* Main.storyboard */; };
 		497296711ECAEF5800A8DDD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 497296701ECAEF5800A8DDD9 /* Assets.xcassets */; };
 		497296741ECAEF5800A8DDD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497296721ECAEF5800A8DDD9 /* LaunchScreen.storyboard */; };
-		4972967D1ECAF21E00A8DDD9 /* BBHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972967C1ECAF21E00A8DDD9 /* BBHTTPSessionManager.m */; };
+		4972967D1ECAF21E00A8DDD9 /* BBNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */; };
 		D3F6B350E507AA8A46944458 /* libPods-BBNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CA2FE13307EC53BF95BEC9 /* libPods-BBNetwork.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27CA2FE13307EC53BF95BEC9 /* libPods-BBNetwork.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BBNetwork.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		491520761ECBEA8500C89286 /* BBResponseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBResponseObject.h; sourceTree = "<group>"; };
+		491520771ECBEA8500C89286 /* BBResponseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBResponseObject.m; sourceTree = "<group>"; };
+		491520791ECBF7A600C89286 /* BBNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNetwork.h; sourceTree = "<group>"; };
+		4915207A1ECC283A00C89286 /* BBNetworkDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNetworkDefine.h; sourceTree = "<group>"; };
+		4915207B1ECC283A00C89286 /* BBNetworkDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNetworkDefine.m; sourceTree = "<group>"; };
+		4915207D1ECC294700C89286 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		4915207F1ECC294B00C89286 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		491520811ECC401A00C89286 /* BBNetPictureModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNetPictureModel.h; sourceTree = "<group>"; };
+		491520821ECC401A00C89286 /* BBNetPictureModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNetPictureModel.m; sourceTree = "<group>"; };
 		497296611ECAEF5800A8DDD9 /* BBNetwork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBNetwork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		497296651ECAEF5800A8DDD9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		497296671ECAEF5800A8DDD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -29,8 +43,8 @@
 		497296701ECAEF5800A8DDD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		497296731ECAEF5800A8DDD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		497296751ECAEF5800A8DDD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4972967B1ECAF21E00A8DDD9 /* BBHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBHTTPSessionManager.h; sourceTree = "<group>"; };
-		4972967C1ECAF21E00A8DDD9 /* BBHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBHTTPSessionManager.m; sourceTree = "<group>"; };
+		4972967B1ECAF21E00A8DDD9 /* BBNetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNetworkManager.h; sourceTree = "<group>"; };
+		4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNetworkManager.m; sourceTree = "<group>"; };
 		5D228B106D030E471718937F /* Pods-BBNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBNetwork/Pods-BBNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		8FA84A31803B55C826FBF439 /* Pods-BBNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBNetwork/Pods-BBNetwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -40,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				491520801ECC294B00C89286 /* Foundation.framework in Frameworks */,
+				4915207E1ECC294700C89286 /* UIKit.framework in Frameworks */,
 				D3F6B350E507AA8A46944458 /* libPods-BBNetwork.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,8 +88,15 @@
 				497296681ECAEF5800A8DDD9 /* AppDelegate.m */,
 				4972966A1ECAEF5800A8DDD9 /* ViewController.h */,
 				4972966B1ECAEF5800A8DDD9 /* ViewController.m */,
-				4972967B1ECAF21E00A8DDD9 /* BBHTTPSessionManager.h */,
-				4972967C1ECAF21E00A8DDD9 /* BBHTTPSessionManager.m */,
+				491520791ECBF7A600C89286 /* BBNetwork.h */,
+				4915207A1ECC283A00C89286 /* BBNetworkDefine.h */,
+				4915207B1ECC283A00C89286 /* BBNetworkDefine.m */,
+				491520761ECBEA8500C89286 /* BBResponseObject.h */,
+				491520771ECBEA8500C89286 /* BBResponseObject.m */,
+				491520811ECC401A00C89286 /* BBNetPictureModel.h */,
+				491520821ECC401A00C89286 /* BBNetPictureModel.m */,
+				4972967B1ECAF21E00A8DDD9 /* BBNetworkManager.h */,
+				4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */,
 				4972966D1ECAEF5800A8DDD9 /* Main.storyboard */,
 				497296701ECAEF5800A8DDD9 /* Assets.xcassets */,
 				497296721ECAEF5800A8DDD9 /* LaunchScreen.storyboard */,
@@ -94,6 +117,8 @@
 		580ECA615C99077CE24B60B0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4915207F1ECC294B00C89286 /* Foundation.framework */,
+				4915207D1ECC294700C89286 /* UIKit.framework */,
 				27CA2FE13307EC53BF95BEC9 /* libPods-BBNetwork.a */,
 			);
 			name = Frameworks;
@@ -231,10 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4972967D1ECAF21E00A8DDD9 /* BBHTTPSessionManager.m in Sources */,
+				4972967D1ECAF21E00A8DDD9 /* BBNetworkManager.m in Sources */,
 				4972966C1ECAEF5800A8DDD9 /* ViewController.m in Sources */,
+				491520781ECBEA8500C89286 /* BBResponseObject.m in Sources */,
 				497296691ECAEF5800A8DDD9 /* AppDelegate.m in Sources */,
 				497296661ECAEF5800A8DDD9 /* main.m in Sources */,
+				491520831ECC401A00C89286 /* BBNetPictureModel.m in Sources */,
+				4915207C1ECC283A00C89286 /* BBNetworkDefine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

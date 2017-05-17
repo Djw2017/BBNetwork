@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BBNetwork"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "BBNetwork is the base network library"
 
   s.description  = <<-DESC
@@ -22,13 +22,9 @@ Pod::Spec.new do |s|
 
 
   s.source_files  = "Pod/*.{h,m}"
-  # ,"BBSDK/Utility/*.{h,m}","BBSDK/Categories/Foundation/*.{h,m}","BBSDK/Categories/UIKit/*.{h,m}","BBSDK/Macros/*.h"
-
-  #s.frameworks = "UIKit"
 
   s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   s.dependency 'AFNetworking', '~> 3.1.0'
 
 end
