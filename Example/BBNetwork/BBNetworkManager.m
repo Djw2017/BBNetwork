@@ -6,7 +6,7 @@
 //  Copyright © 2017年 Babybus. All rights reserved.
 //
 
-#import "AFNetworking.h"
+#import <AFNetworking/AFNetworking.h>
 
 #import "BBNetworkDefine.h"
 #import "BBNetworkManager.h"
