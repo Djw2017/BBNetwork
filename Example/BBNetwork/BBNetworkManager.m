@@ -369,8 +369,8 @@
         if ([[responseDict allKeys] containsObject:@"status"]) {
             if ([[responseDict objectForKey:@"status"] intValue] == 1) {
                 
-                BBResponseObject *responseObject = [BBResponseObject responseObjectWithDictionary:responseDict];
-                success(responseObject);
+//                BBResponseObject *responseObject = [BBResponseObject responseObjectWithDictionary:responseDict];
+                success(responseDict);
             }else {
                 NSError *error;
                 if ([[responseDict objectForKey:@"status"] intValue] == 0) {

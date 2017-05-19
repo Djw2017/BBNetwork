@@ -68,7 +68,7 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  @param failure 请求失败回调
  */
 + (NSURLSessionDataTask *)getURLString:(NSString *)URLString
-          parameters:(id)parameters
+          parameters:(nullable id)parameters
              success:(responseSuccessBlock)success
              failure:(responseFailureBlock)failure;
 
@@ -82,7 +82,7 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-           parameters:(id)parameters
+           parameters:(nullable id)parameters
               success:(responseSuccessBlock)success
               failure:(responseFailureBlock)failure;
 
@@ -97,7 +97,7 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-           parameters:(id)parameters
+           parameters:(nullable id)parameters
               success:(responseSuccessBlock)success
               failure:(responseFailureBlock)failure
     optionsAttributes:(nullable NSDictionary *)attributesDic;
@@ -134,7 +134,7 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  *  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-                                 parameters:(NSDictionary *)parameters
+                                 parameters:(nullable NSDictionary *)parameters
                                      andPic:(BBNetPictureModel *)picModle
                                    progress:(progressBlock)progress
                                     success:(responseSuccessBlock)success
@@ -152,7 +152,7 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  *  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-                                 parameters:(NSDictionary *)parameters
+                                 parameters:(nullable NSDictionary *)parameters
                                      andPic:(BBNetPictureModel *)picModle
                                    progress:(progressBlock)progress
                                     success:(responseSuccessBlock)success
