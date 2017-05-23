@@ -81,24 +81,24 @@
               success:(responseSuccessBlock)success
               failure:(responseFailureBlock)failure {
     
-    return  [self postURLString:URLString parameters:parameters success:success failure:failure optionsAttributes:nil];
+    return  [self postURLString:URLString parameters:parameters optionsAttributes:nil success:success failure:failure];
 }
 
 /**
  POST请求,携带参数
-
+ 
  @param URLString 请求链接
  @param parameters 请求参数
+ @param attributesDic 携带参数 @see BBNetworkDefine
  @param success 请求成功回调
  @param failure 请求失败回调
- @param attributesDic 携带参数 @see BBNetworkDefine
  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
                              parameters:(id)parameters
+                      optionsAttributes:(NSDictionary *)attributesDic 
                                 success:(responseSuccessBlock)success
-                                failure:(responseFailureBlock)failure
-                      optionsAttributes:(NSDictionary *)attributesDic {
+                                failure:(responseFailureBlock)failure {
 
     // 设置超时时间
     NSNumber *timeoutIntervalNumber = attributesDic[BBNetworkTimeoutIntervalName];
@@ -128,6 +128,29 @@
     }];
 
     return dataTask;
+}
+
+/**
+ POST请求,直接携带超时时间
+ 
+ @param URLString 请求链接
+ @param parameters 请求参数
+ @param timeoutInterval 超时时间 @see BBNetworkTimeoutIntervalName
+ @param success 请求成功回调
+ @param failure 请求失败回调
+ @return dataTask
+ */
++ (NSURLSessionDataTask *)postURLString:(NSString *)URLString
+                             parameters:(nullable id)parameters
+                    withTimeoutInterval:(NSTimeInterval)timeoutInterval
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure {
+    
+    return  [self postURLString:URLString
+                     parameters:parameters
+              optionsAttributes:@{BBNetworkTimeoutIntervalName: [NSNumber numberWithInteger:timeoutInterval]}
+                        success:success
+                        failure:failure];
 }
 
 
@@ -210,7 +233,7 @@
                                 success:(responseSuccessBlock)success
                                 failure:(responseFailureBlock)failure {
     
-    return [self postURLString:URLString parameters:parameters andPic:picModle progress:progress success:success failure:failure optionsAttributes:nil];
+    return [self postURLString:URLString parameters:parameters  optionsAttributes:nil andPic:picModle progress:progress success:success failure:failure];
 }
 
 /**
@@ -218,18 +241,20 @@
  *
  *  @param URLString  请求的链接
  *  @param parameters 请求的参数
+ *  @param attributesDic 携带参数 @see BBNetworkDefine
  *  @param picModle   上传的图片模型
  *  @param progress   进度的回调
  *  @param success    发送成功的回调
  *  @param failure    发送失败的回调
+ *  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-                             parameters:(NSDictionary *)parameters
+                             parameters:(nullable NSDictionary *)parameters
+                      optionsAttributes:(nullable NSDictionary *)attributesDic
                                  andPic:(BBNetPictureModel *)picModle
                                progress:(progressBlock)progress
                                 success:(responseSuccessBlock)success
-                                failure:(responseFailureBlock)failure
-                      optionsAttributes:(NSDictionary *)attributesDic {
+                                failure:(responseFailureBlock)failure {
     
     // 设置超时时间
     NSNumber *timeoutIntervalNumber = attributesDic[BBNetworkTimeoutIntervalName];

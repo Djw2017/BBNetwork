@@ -68,9 +68,9 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  @param failure 请求失败回调
  */
 + (NSURLSessionDataTask *)getURLString:(NSString *)URLString
-          parameters:(nullable id)parameters
-             success:(responseSuccessBlock)success
-             failure:(responseFailureBlock)failure;
+                            parameters:(nullable id)parameters
+                               success:(responseSuccessBlock)success
+                               failure:(responseFailureBlock)failure;
 
 /**
  POST请求
@@ -82,25 +82,41 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-           parameters:(nullable id)parameters
-              success:(responseSuccessBlock)success
-              failure:(responseFailureBlock)failure;
+                             parameters:(nullable id)parameters
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure;
 
 /**
  POST请求,携带参数
  
  @param URLString 请求链接
  @param parameters 请求参数
+ @param attributesDic 携带参数 @see BBNetworkDefine
  @param success 请求成功回调
  @param failure 请求失败回调
- @param attributesDic 携带参数 @see BBNetworkDefine
  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-           parameters:(nullable id)parameters
-              success:(responseSuccessBlock)success
-              failure:(responseFailureBlock)failure
-    optionsAttributes:(nullable NSDictionary *)attributesDic;
+                             parameters:(nullable id)parameters
+                      optionsAttributes:(nullable NSDictionary *)attributesDic
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure;
+
+/**
+ POST请求,直接携带超时时间
+ 
+ @param URLString 请求链接
+ @param parameters 请求参数
+ @param timeoutInterval 超时时间 @see BBNetworkTimeoutIntervalName
+ @param success 请求成功回调
+ @param failure 请求失败回调
+ @return dataTask
+ */
++ (NSURLSessionDataTask *)postURLString:(NSString *)URLString
+                             parameters:(nullable id)parameters
+                    withTimeoutInterval:(NSTimeInterval)timeoutInterval
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure;
 
 
 
@@ -134,17 +150,18 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  *  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-                                 parameters:(nullable NSDictionary *)parameters
-                                     andPic:(BBNetPictureModel *)picModle
-                                   progress:(progressBlock)progress
-                                    success:(responseSuccessBlock)success
-                                    failure:(responseFailureBlock)failure;
+                             parameters:(nullable NSDictionary *)parameters
+                                 andPic:(BBNetPictureModel *)picModle
+                               progress:(progressBlock)progress
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure;
 
 /**
  *  POST图片上传(单张图片) ,携带参数
  *
  *  @param URLString  请求的链接
  *  @param parameters 请求的参数
+ *  @param attributesDic 携带参数 @see BBNetworkDefine
  *  @param picModle   上传的图片模型
  *  @param progress   进度的回调
  *  @param success    发送成功的回调
@@ -152,12 +169,12 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
  *  @return dataTask
  */
 + (NSURLSessionDataTask *)postURLString:(NSString *)URLString
-                                 parameters:(nullable NSDictionary *)parameters
-                                     andPic:(BBNetPictureModel *)picModle
-                                   progress:(progressBlock)progress
-                                    success:(responseSuccessBlock)success
-                                    failure:(responseFailureBlock)failure
-                          optionsAttributes:(nullable NSDictionary *)attributesDic;
+                             parameters:(nullable NSDictionary *)parameters
+                      optionsAttributes:(nullable NSDictionary *)attributesDic
+                                 andPic:(BBNetPictureModel *)picModle
+                               progress:(progressBlock)progress
+                                success:(responseSuccessBlock)success
+                                failure:(responseFailureBlock)failure;
 
 @end
 
