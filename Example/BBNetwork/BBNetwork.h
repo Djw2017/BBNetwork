@@ -13,6 +13,7 @@
 
 #import "BBNetworkDefine.h"
 #import "BBNetworkManager.h"
+#import "BBNetworkReachabitily.h"
 
 #import "BBNetPictureModel.h"
 #import "BBResponseObject.h"

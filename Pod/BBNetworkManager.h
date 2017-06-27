@@ -52,12 +52,27 @@ typedef NSURL *_Nullable(^ destinationBlock)(NSURL *targetPath, NSURLResponse *r
 
 
 
+/**
+ 网络请求类
+ 自动处理服务端响应的数据，status==1才成功回调，否则失败回调
+ */
 @interface BBNetworkManager : NSObject
 
 /// 全局请求超时时间(默认20秒)，单独请求超时请携带参数. @see BBNetworkTimeoutIntervalName
 @property (nonatomic, assign) NSTimeInterval timeoutInterval;
 
 + (instancetype)shareInstance;
+
+/**
+ Get请求
+ 
+ @param URLString 请求链接
+ @param success 请求成功回调
+ @param failure 请求失败回调
+ */
++ (NSURLSessionDataTask *)getURLString:(NSString *)URLString
+                               success:(responseSuccessBlock)success
+                               failure:(responseFailureBlock)failure;
 
 /**
  Get请求

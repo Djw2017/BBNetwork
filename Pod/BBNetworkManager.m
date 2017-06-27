@@ -31,6 +31,19 @@
  Get请求
  
  @param URLString 请求链接
+ @param success 请求成功回调
+ @param failure 请求失败回调
+ */
++ (NSURLSessionDataTask *)getURLString:(NSString *)URLString
+                               success:(responseSuccessBlock)success
+                               failure:(responseFailureBlock)failure {
+    return  [self getURLString:URLString parameters:nil optionsAttributes:nil success:success failure:failure];
+}
+
+/**
+ Get请求
+ 
+ @param URLString 请求链接
  @param parameters 请求参数
  @param success 请求成功回调
  @param failure 请求失败回调
