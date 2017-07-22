@@ -164,8 +164,7 @@
     
     NSURLSessionDataTask * dataTask = [manager POST:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                                                 
-        if (success)
-        {
+        if (success) {
             // 处理数据
             [self successHandle:responseObject withSuccess:success withfailure:failure withAttributes:attributesDic];
         }
@@ -173,8 +172,7 @@
             
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             
-        if (failure)
-        {
+        if (failure) {
             failure(error);
         }
         
@@ -235,30 +233,23 @@
     // 下载任务
     NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
-        if (progress)
-        {
+        if (progress) {
             progress(downloadProgress);
         }
         
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
-        if (destination)
-        {
+        if (destination) {
             return destination(targetPath, response);
-        }
-        else
-        {
+        } else {
             return nil;
         }
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
-        if (error)
-        {
+        if (error && downLoadFailure) {
             downLoadFailure(error);
-        }
-        else
-        {
+        }else if(downLoadSuccess){
             downLoadSuccess(response, filePath);
         }
     }];
@@ -410,7 +401,9 @@
             if (!error) {
                 [self bbNetWorkingHandleNSDictionary:responseDict withSuccessBolck:success withFailureBolck:failure];
             }else {
-                failure(error);
+                if (failure) {
+                    failure(error);
+                }
             }
         }
         // --处理NSString数据，不进行任何处理，直接返回
@@ -424,12 +417,10 @@
         }
         
     }
-    
     else if (responseObject != nil && [responseObject isKindOfClass:[NSString class]]) {
         success(responseObject);
     }
-    
-    else {
+    else if(failure){
         NSError *error = [NSError errorWithDomain:@"responseObject format is error" code:-2 userInfo:responseObject];
         failure(error);
     }
@@ -453,7 +444,7 @@
                 
 //                BBResponseObject *responseObject = [BBResponseObject responseObjectWithDictionary:responseDict];
                 success(responseDict);
-            }else {
+            }else if(failure) {
                 NSError *error;
                 if ([[responseDict objectForKey:@"status"] intValue] == 0) {
                     error = [NSError errorWithDomain:@"status is zero" code:-1 userInfo:responseDict];
