@@ -7,7 +7,7 @@
 //
 
 #import "AFNetworking.h"
-
+#import "BBSystemUtil.h"
 #import "BBNetworkDefine.h"
 #import "BBNetworkManager.h"
 #import "BBResponseObject.h"
@@ -19,7 +19,7 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         shareInstance = [[self alloc] init];
-        shareInstance.timeoutInterval = 20;
+        shareInstance.timeoutInterval = 10;
     });
     
     return shareInstance;
@@ -79,7 +79,7 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = timeoutInterval;
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json" ,@"text/javascript", nil];
     
     NSURLSessionDataTask * dataTask = [manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
                                                
@@ -230,7 +230,6 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
-    // 下载任务
     NSURLSessionDownloadTask *task = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
         if (progress) {
@@ -252,11 +251,9 @@
         }else if(downLoadSuccess){
             downLoadSuccess(response, filePath);
         }
+        
     }];
-    
-    // 开始启动任务
     [task resume];
-    
     return task;
 }
 
@@ -306,9 +303,6 @@
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer.timeoutInterval = timeoutInterval;
-    
-    manager.requestSerializer = [AFHTTPRequestSerializer serializer]; // 请求不使用AFN默认转换,保持原有数据
-    manager.responseSerializer = [AFHTTPResponseSerializer serializer]; // 响应不使用AFN默认转换,保持原有数据
     
     NSURLSessionDataTask *task = [manager POST:URLString parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         

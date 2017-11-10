@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "BBNetwork"
-  s.version      = "1.0.5"
+  s.version      = "1.1.0"
   s.summary      = "BBNetwork is the base network library"
 
   s.description  = <<-DESC

@@ -15,7 +15,8 @@ FOUNDATION_EXPORT NSString * const BBNetworkTimeoutIntervalName;
 /// 请求返回类型, NSNumber containing integer, @see BBNetResponseType, default BBNetResponseNSDictionary
 FOUNDATION_EXPORT NSString * const BBNetworkResponseTypeName;
 
-
+#define DOWNLOAD_QUEUE dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define DOWNLOAD_GROUP dispatch_group_create();
 
 /**
  post请求响应指定数据类型
