@@ -15,6 +15,10 @@
 #import "BBNetworkManager.h"
 #import "BBNetworkReachabitily.h"
 
+#import "BBBaseRequest.h"
+#import "BBBaseRequestProtocol.h"
+#import "BBBaseAPIManager.h"
+
 #import "BBNetPictureModel.h"
 #import "BBResponseObject.h"
 

@@ -6,12 +6,9 @@
 //  Copyright © 2017年 Babybus. All rights reserved.
 //
 
-#import <CoreTelephony/CTCellularData.h>
-#import <ifaddrs.h>
-#import <net/if.h> 
-#import <UIKit/UIKit.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#include <netdb.h>
 
-#import "AFNetworkReachabilityManager.h"
 #import "BBNetworkReachabitily.h"
 
 @implementation BBNetworkReachabitily
@@ -22,10 +19,35 @@
  @return
  */
 + (BOOL)isWWANEnabled {
-    if ([AFNetworkReachabilityManager sharedManager].isReachableViaWWAN) {
-        return YES;
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        printf("Error. Could not recover network reachability flagsn");
+        return NO;
     }
-    return NO;
+    
+    BOOL isReachable = ((flags & kSCNetworkFlagsReachable) != 0);
+    if (isReachable) {
+        if (flags & kSCNetworkReachabilityFlagsIsWWAN) {
+            NSLog(@"IsWWAN");
+            return YES;
+        } else {
+            NSLog(@"WIFI");
+            return NO;
+        }
+    } else {
+        return NO;
+    }
 }
 
 /**
@@ -34,22 +56,66 @@
  @return  wifi
  */
 + (BOOL)isWiFiEnabled {
-    if ([AFNetworkReachabilityManager sharedManager].isReachableViaWiFi) {
-        return YES;
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        printf("Error. Could not recover network reachability flagsn");
+        return NO;
     }
-    return NO;
+    
+    BOOL isReachable = ((flags & kSCNetworkFlagsReachable) != 0);
+    if (isReachable) {
+        if (flags & kSCNetworkReachabilityFlagsIsWWAN) {
+            NSLog(@"IsWWAN");
+            return NO;
+        } else {
+            NSLog(@"WIFI");
+            return YES;
+        }
+    } else {
+        return NO;
+    }
 }
 
 /**
- 使用AFNetworkReachabilityManager判断网络可用
+ 网络可用
  
  @return  网络可用
  */
 + (BOOL)isInternetConnection {
-    if ([AFNetworkReachabilityManager sharedManager].isReachable) {
-        return YES;
+    struct sockaddr_in zeroAddress;
+    bzero(&zeroAddress, sizeof(zeroAddress));
+    zeroAddress.sin_len = sizeof(zeroAddress);
+    zeroAddress.sin_family = AF_INET;
+    
+    SCNetworkReachabilityRef defaultRouteReachability = SCNetworkReachabilityCreateWithAddress(NULL, (struct sockaddr *)&zeroAddress);
+    SCNetworkReachabilityFlags flags;
+    
+    BOOL didRetrieveFlags = SCNetworkReachabilityGetFlags(defaultRouteReachability, &flags);
+    CFRelease(defaultRouteReachability);
+    
+    if (!didRetrieveFlags)
+    {
+        printf("Error. Could not recover network reachability flagsn");
+        return NO;
     }
-    return NO;
+    
+    BOOL isReachable = ((flags & kSCNetworkFlagsReachable) != 0);
+    if (isReachable) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 @end

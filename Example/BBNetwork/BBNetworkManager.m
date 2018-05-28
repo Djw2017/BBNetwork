@@ -82,7 +82,8 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json" ,@"text/javascript", nil];
     
     NSURLSessionDataTask * dataTask = [manager GET:URLString parameters:parameters progress:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-                                               
+        
+        
        if (success) {
            // 处理数据
            [self successHandle:responseObject withSuccess:success withfailure:failure withAttributes:attributesDic];
@@ -394,7 +395,7 @@
                                                                            error:&error];
             if (!error) {
                 [self bbNetWorkingHandleNSDictionary:responseDict withSuccessBolck:success withFailureBolck:failure];
-            }else {
+            } else {
                 if (failure) {
                     failure(error);
                 }

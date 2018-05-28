@@ -13,26 +13,19 @@
 /**
  WWAN网络
  
- @return 
+ @return
  */
 + (BOOL)isWWANEnabled;
 
 /**
- 使用ifaddrs 判断wifi状态
-
+ wifi
+ 
  @return  wifi
  */
 + (BOOL)isWiFiEnabled;
 
-///**
-// 使用CTCellularData判断网络可用
-// 
-// @return  网络可用
-// */
-//+ (BOOL)isNetRestricted;
-
 /**
- 使用AFNetworkReachabilityManager判断网络可用
+ 网络可用
  
  @return  网络可用
  */

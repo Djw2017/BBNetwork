@@ -20,6 +20,9 @@
 		497296741ECAEF5800A8DDD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 497296721ECAEF5800A8DDD9 /* LaunchScreen.storyboard */; };
 		4972967D1ECAF21E00A8DDD9 /* BBNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */; };
 		499309861F00980F001C6151 /* BBNetworkReachabitily.m in Sources */ = {isa = PBXBuildFile; fileRef = 499309851F00980F001C6151 /* BBNetworkReachabitily.m */; };
+		49E0E9F620BBD9E000C171F9 /* NSString+BBNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0E9EF20BBD9DF00C171F9 /* NSString+BBNetwork.m */; };
+		49E0E9F720BBD9E000C171F9 /* BBBaseAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0E9F120BBD9DF00C171F9 /* BBBaseAPIManager.m */; };
+		49E0E9F820BBD9E000C171F9 /* BBBaseRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0E9F420BBD9E000C171F9 /* BBBaseRequest.m */; };
 		D3F6B350E507AA8A46944458 /* libPods-BBNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 27CA2FE13307EC53BF95BEC9 /* libPods-BBNetwork.a */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +51,13 @@
 		4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNetworkManager.m; sourceTree = "<group>"; };
 		499309841F00980F001C6151 /* BBNetworkReachabitily.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBNetworkReachabitily.h; sourceTree = "<group>"; };
 		499309851F00980F001C6151 /* BBNetworkReachabitily.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBNetworkReachabitily.m; sourceTree = "<group>"; };
+		49E0E9EF20BBD9DF00C171F9 /* NSString+BBNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BBNetwork.m"; sourceTree = "<group>"; };
+		49E0E9F020BBD9DF00C171F9 /* NSString+BBNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BBNetwork.h"; sourceTree = "<group>"; };
+		49E0E9F120BBD9DF00C171F9 /* BBBaseAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBaseAPIManager.m; sourceTree = "<group>"; };
+		49E0E9F220BBD9DF00C171F9 /* BBBaseRequestProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBaseRequestProtocol.h; sourceTree = "<group>"; };
+		49E0E9F320BBD9DF00C171F9 /* BBBaseRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBaseRequest.h; sourceTree = "<group>"; };
+		49E0E9F420BBD9E000C171F9 /* BBBaseRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBBaseRequest.m; sourceTree = "<group>"; };
+		49E0E9F520BBD9E000C171F9 /* BBBaseAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBBaseAPIManager.h; sourceTree = "<group>"; };
 		5D228B106D030E471718937F /* Pods-BBNetwork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBNetwork.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBNetwork/Pods-BBNetwork.debug.xcconfig"; sourceTree = "<group>"; };
 		8FA84A31803B55C826FBF439 /* Pods-BBNetwork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBNetwork.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBNetwork/Pods-BBNetwork.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +112,13 @@
 				4972967C1ECAF21E00A8DDD9 /* BBNetworkManager.m */,
 				499309841F00980F001C6151 /* BBNetworkReachabitily.h */,
 				499309851F00980F001C6151 /* BBNetworkReachabitily.m */,
+				49E0E9F520BBD9E000C171F9 /* BBBaseAPIManager.h */,
+				49E0E9F120BBD9DF00C171F9 /* BBBaseAPIManager.m */,
+				49E0E9F320BBD9DF00C171F9 /* BBBaseRequest.h */,
+				49E0E9F420BBD9E000C171F9 /* BBBaseRequest.m */,
+				49E0E9F220BBD9DF00C171F9 /* BBBaseRequestProtocol.h */,
+				49E0E9F020BBD9DF00C171F9 /* NSString+BBNetwork.h */,
+				49E0E9EF20BBD9DF00C171F9 /* NSString+BBNetwork.m */,
 				4972966D1ECAEF5800A8DDD9 /* Main.storyboard */,
 				497296701ECAEF5800A8DDD9 /* Assets.xcassets */,
 				497296721ECAEF5800A8DDD9 /* LaunchScreen.storyboard */,
@@ -262,10 +279,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4972967D1ECAF21E00A8DDD9 /* BBNetworkManager.m in Sources */,
+				49E0E9F720BBD9E000C171F9 /* BBBaseAPIManager.m in Sources */,
 				499309861F00980F001C6151 /* BBNetworkReachabitily.m in Sources */,
 				4972966C1ECAEF5800A8DDD9 /* ViewController.m in Sources */,
 				491520781ECBEA8500C89286 /* BBResponseObject.m in Sources */,
+				49E0E9F620BBD9E000C171F9 /* NSString+BBNetwork.m in Sources */,
 				497296691ECAEF5800A8DDD9 /* AppDelegate.m in Sources */,
+				49E0E9F820BBD9E000C171F9 /* BBBaseRequest.m in Sources */,
 				497296661ECAEF5800A8DDD9 /* main.m in Sources */,
 				491520831ECC401A00C89286 /* BBNetPictureModel.m in Sources */,
 				4915207C1ECC283A00C89286 /* BBNetworkDefine.m in Sources */,
